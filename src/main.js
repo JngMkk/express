@@ -2,6 +2,7 @@ import express from "express";
 
 import getHealth from "./apps/health.js";
 import postApp from "./apps/posts.js";
+import userApp from "./apps/users.js";
 
 const app = express();
 const port = 3000;
@@ -16,6 +17,9 @@ app.get("/health", getHealth);
 app.get("/posts", postApp.getPosts);
 app.post("/posts", postApp.createPost);
 app.delete("/posts/:id", postApp.deletePost);
+
+app.post("/users/callback", userApp.signUpCallBack);
+app.post("/users/promise", userApp.signUpPromise);
 
 app.listen(port, () => {
   console.log(`Start Server. Using ${port} port`);
