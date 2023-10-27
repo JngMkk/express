@@ -1,6 +1,7 @@
 import express from "express";
 
 import getHealth from "./apps/health.js";
+import movieApp from "./apps/movies.js";
 import postApp from "./apps/posts.js";
 import userApp from "./apps/users.js";
 
@@ -13,6 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/health", getHealth);
+
+app.get("/movies/promise", movieApp.getTop20MoviesPromise);
+app.get("/movies/async", movieApp.getTop20MoviesAsync);
 
 app.get("/posts", postApp.getPosts);
 app.post("/posts", postApp.createPost);
