@@ -77,4 +77,11 @@ function getResultPromise(body) {
 
 const userApp = { signUpCallBack, signUpPromise };
 
+/*
+  동시에 여러 Promise 객체 호출 test. 나열된 순서에 상관 없음.
+*/
+// const myUser = { email: "test@test.com", name: "testuser", password: "1234!" };
+// const allRes = Promise.all([saveUserPromise(myUser), sendEmailPromise(myUser), getResultPromise(myUser)]);
+// allRes.then(console.log);
+
 export default userApp;
